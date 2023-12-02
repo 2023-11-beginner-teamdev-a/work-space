@@ -13,4 +13,14 @@ table {
 
 td {
   border: solid;
+  width: 200px;
+  height: 200px;
+  text-align: center;
+  font-size: 2em;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+td:hover {
+  background-color: #e0e0e0;
 }
