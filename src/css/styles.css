@@ -1,0 +1,16 @@
+table {
+  border: solid;
+  width: 600px;
+  height: 600px;
+  border-spacing: 0;
+  /* 中央寄せ用 */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* 中央寄せ用 */
+}
+
+td {
+  border: solid;
+}
