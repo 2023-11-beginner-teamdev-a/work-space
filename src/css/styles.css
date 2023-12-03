@@ -19,6 +19,7 @@ td {
   font-size: 2em;
   cursor: pointer;
   transition: background-color 0.3s;
+  user-select: none;
 }
 
 td:hover {
