@@ -31,7 +31,7 @@ export default class Board {
   }
 
   // 勝敗の確認
-  checkWinner() {
+  isGameOver() {
     for (let i = 0; i < 3; i++) {
       // 横が揃う
       if (
@@ -39,8 +39,7 @@ export default class Board {
         this.cells[i][1] === this.game.currentPlayer.symbol &&
         this.cells[i][2] === this.game.currentPlayer.symbol
       ) {
-        console.log(`Winner: ${this.game.currentPlayer.symbol}`);
-        return this.game.currentPlayer.symbol;
+        return true;
       }
 
       // 縦が揃う
@@ -49,8 +48,7 @@ export default class Board {
         this.cells[1][i] === this.game.currentPlayer.symbol &&
         this.cells[2][i] === this.game.currentPlayer.symbol
       ) {
-        console.log(`Winner: ${this.game.currentPlayer.symbol}`);
-        return this.game.currentPlayer.symbol;
+        return true;
       }
     }
 
@@ -60,8 +58,7 @@ export default class Board {
       this.cells[1][1] === this.game.currentPlayer.symbol &&
       this.cells[2][2] === this.game.currentPlayer.symbol
     ) {
-      console.log(`Winner: ${this.game.currentPlayer.symbol}`);
-      return this.game.currentPlayer.symbol;
+      return true;
     }
 
     // 斜めが揃う
@@ -70,10 +67,13 @@ export default class Board {
       this.cells[1][1] === this.game.currentPlayer.symbol &&
       this.cells[2][0] === this.game.currentPlayer.symbol
     ) {
-      console.log(`Winner: ${this.game.currentPlayer.symbol}`);
-      return this.game.currentPlayer.symbol;
+      return true;
     }
 
     return false;
+  }
+
+  isBoardFull() {
+    return !this.cells.flat().includes(null);
   }
 }

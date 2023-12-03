@@ -21,24 +21,38 @@ export default class TicTacToe {
     this.board = new Board(this);
     this.init();
 
-    this.waitCellClick();
+    this.setCellClickListeners();
   }
 
   reset() {
     this.init();
-    this.waitCellClick();
+    this.clearCellClickListeners();
+    this.setCellClickListeners();
   }
 
-  waitCellClick() {
+  // イベントリスナーの登録
+  setCellClickListeners() {
     for (let row = 0; row < 3; row++) {
       for (let col = 0; col < 3; col++) {
-        document.getElementById(`cell-${row}-${col}`).addEventListener('click', () => {
-          this.handleCellClick(row, col);
-        });
+        document
+          .getElementById(`cell-${row}-${col}`)
+          .addEventListener('click', this.handleCellClick.bind(this, row, col));
       }
     }
   }
 
+  // イベントリスナーの削除
+  clearCellClickListeners() {
+    for (let row = 0; row < 3; row++) {
+      for (let col = 0; col < 3; col++) {
+        document
+          .getElementById(`cell-${row}-${col}`)
+          .removeEventListener('click', this.handleCellClick);
+      }
+    }
+  }
+
+  // セルがクリックされた時の処理
   handleCellClick(row, col) {
     // セルの取得
     const cell = document.getElementById(`cell-${row}-${col}`);
@@ -47,9 +61,23 @@ export default class TicTacToe {
     if (!this.board.isEmpty(row, col)) {
       return;
     }
+
+    // 一手進める（シンボルを置く）
     this.board.placeSymbol(row, col, cell);
-    this.board.checkWinner();
-    this.switchPlayer();
+
+    if (this.board.isGameOver()) {
+      // 決着がついた場合
+      console.log(`Winner is '${this.currentPlayer.symbol}'`);
+    } else {
+      // 決着がつかない場合
+      if (this.board.isBoardFull()) {
+        // 引き分けの場合
+        console.log('Draw!');
+      } else {
+        // 試合続行の場合
+        this.switchPlayer();
+      }
+    }
   }
 
   // 手番の更新
