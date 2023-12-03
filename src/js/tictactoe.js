@@ -20,7 +20,6 @@ export default class TicTacToe {
   start() {
     this.board = new Board(this);
     this.init();
-
     this.setCellClickListeners();
   }
 
@@ -30,24 +29,30 @@ export default class TicTacToe {
     this.setCellClickListeners();
   }
 
-  // イベントリスナーの登録
+  // セルをクリックした時のイベントリスナーの登録
   setCellClickListeners() {
     for (let row = 0; row < 3; row++) {
       for (let col = 0; col < 3; col++) {
-        document
-          .getElementById(`cell-${row}-${col}`)
-          .addEventListener('click', this.handleCellClick.bind(this, row, col));
+        const cell = document.getElementById(`cell-${row}-${col}`);
+        cell.addEventListener('click', () => {
+          if (!this.board.isGameOver() && this.board.isEmpty(row, col)) {
+            this.handleCellClick(row, col);
+          }
+        });
       }
     }
   }
 
-  // イベントリスナーの削除
+  // セルをクリックした時のイベントリスナーの削除
   clearCellClickListeners() {
     for (let row = 0; row < 3; row++) {
       for (let col = 0; col < 3; col++) {
-        document
-          .getElementById(`cell-${row}-${col}`)
-          .removeEventListener('click', this.handleCellClick);
+        const cell = document.getElementById(`cell-${row}-${col}`);
+        cell.removeEventListener('click', () => {
+          if (!this.board.isGameOver() && this.board.isEmpty(row, col)) {
+            this.handleCellClick(row, col);
+          }
+        });
       }
     }
   }
@@ -67,9 +72,10 @@ export default class TicTacToe {
 
     if (this.board.isGameOver()) {
       // 決着がついた場合
-      console.log(`Winner is '${this.currentPlayer.symbol}'`);
+      this.winner = this.currentPlayer;
+      console.log(`Winner is '${this.winner.symbol}'`);
     } else {
-      // 決着がつかない場合
+      // 決着がついていない場合
       if (this.board.isBoardFull()) {
         // 引き分けの場合
         console.log('Draw!');

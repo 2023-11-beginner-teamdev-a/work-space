@@ -74,6 +74,6 @@ export default class Board {
   }
 
   isBoardFull() {
-    return !this.cells.flat().includes(null);
+    return this.cells.every((row) => row.every((cell) => cell !== null));
   }
 }
