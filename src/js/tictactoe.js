@@ -6,10 +6,7 @@ export default class TicTacToe {
     this.board = null;
   }
 
-  start() {
-    this.board = new Board(this);
-
-    // プレイヤーを作成
+  init() {
     // TODO: npcの実装は後から
     this.players = {
       x: new HumanPlayer('x'),
@@ -17,7 +14,22 @@ export default class TicTacToe {
     };
     // 現在の手番を保持
     this.currentPlayer = this.players.x;
+    this.board.init();
+  }
 
+  start() {
+    this.board = new Board(this);
+    this.init();
+
+    this.waitCellClick();
+  }
+
+  reset() {
+    this.init();
+    this.waitCellClick();
+  }
+
+  waitCellClick() {
     for (let row = 0; row < 3; row++) {
       for (let col = 0; col < 3; col++) {
         document.getElementById(`cell-${row}-${col}`).addEventListener('click', () => {

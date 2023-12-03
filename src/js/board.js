@@ -1,11 +1,20 @@
 export default class Board {
   constructor(game) {
+    this.game = game;
+  }
+
+  init() {
     // nullで初期化された3x3の配列を生成
     this.cells = Array(3)
       .fill(null)
       .map(() => Array(3).fill(null));
 
-    this.game = game;
+    // UIを初期化
+    for (let row = 0; row < 3; row++) {
+      for (let col = 0; col < 3; col++) {
+        document.getElementById(`cell-${row}-${col}`).textContent = '';
+      }
+    }
   }
 
   // セルが空白か確認
@@ -31,6 +40,7 @@ export default class Board {
         this.cells[i][2] === this.game.currentPlayer.symbol
       ) {
         console.log(`Winner: ${this.game.currentPlayer.symbol}`);
+        return this.game.currentPlayer.symbol;
       }
 
       // 縦が揃う
@@ -40,6 +50,7 @@ export default class Board {
         this.cells[2][i] === this.game.currentPlayer.symbol
       ) {
         console.log(`Winner: ${this.game.currentPlayer.symbol}`);
+        return this.game.currentPlayer.symbol;
       }
     }
 
@@ -50,6 +61,7 @@ export default class Board {
       this.cells[2][2] === this.game.currentPlayer.symbol
     ) {
       console.log(`Winner: ${this.game.currentPlayer.symbol}`);
+      return this.game.currentPlayer.symbol;
     }
 
     // 斜めが揃う
@@ -59,6 +71,9 @@ export default class Board {
       this.cells[2][0] === this.game.currentPlayer.symbol
     ) {
       console.log(`Winner: ${this.game.currentPlayer.symbol}`);
+      return this.game.currentPlayer.symbol;
     }
+
+    return false;
   }
 }
