@@ -7,6 +7,7 @@ const ticTacToe = new TicTacToe();
 
 startTicTacToeBtn.addEventListener('click', function () {
   boardTable.classList.remove('inactive');
+  resetTicTacToeBtn.classList.remove('inactive');
   this.classList.add('inactive');
   ticTacToe.start();
 });
