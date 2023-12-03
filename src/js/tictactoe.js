@@ -17,6 +17,14 @@ export default class TicTacToe {
     };
     // 現在の手番を保持
     this.currentPlayer = this.players.x;
+
+    for (let row = 0; row < 3; row++) {
+      for (let col = 0; col < 3; col++) {
+        document.getElementById(`cell-${row}-${col}`).addEventListener('click', () => {
+          this.handleCellClick(row, col);
+        });
+      }
+    }
   }
 
   handleCellClick(row, col) {

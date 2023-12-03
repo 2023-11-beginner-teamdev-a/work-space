@@ -1,4 +1,4 @@
-table {
+#game-board {
   border: solid;
   width: 600px;
   height: 600px;
@@ -9,6 +9,10 @@ table {
   left: 50%;
   transform: translate(-50%, -50%);
   /* 中央寄せ用 */
+}
+
+.inactive {
+  display: none;
 }
 
 td {
