@@ -29,6 +29,11 @@ export default class TicTacToe {
     this.setCellClickListeners();
   }
 
+  quit() {
+    this.board = null;
+    this.clearCellClickListeners();
+  }
+
   // セルをクリックした時のイベントリスナーの登録
   setCellClickListeners() {
     for (let row = 0; row < 3; row++) {
