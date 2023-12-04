@@ -11,6 +11,16 @@
   /* 中央寄せ用 */
 }
 
+#results-title {
+  font-weight: bold;
+  margin-top: 1%;
+}
+
+#results {
+  width: 60px;
+  text-align: center;
+}
+
 .inactive {
   display: none;
 }

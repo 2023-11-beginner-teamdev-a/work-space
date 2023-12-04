@@ -21,6 +21,7 @@ export default class TicTacToe {
     this.board = new Board(this);
     this.init();
     this.setCellClickListeners();
+    this.displayResults();
   }
 
   reset() {
@@ -34,12 +35,17 @@ export default class TicTacToe {
     this.clearCellClickListeners();
   }
 
-  save(result) {
+  get() {
     let retString = localStorage.getItem('playResults');
-    // ローカルストレージ記録初回時に初期化
-    let retArray = retString === null ? Array(0) : JSON.parse(retString);
+    // ローカルストレージ初回記録時に初期化
+    return retString === null ? Array(0) : JSON.parse(retString);
+  }
+
+  save(result) {
+    let retArray = this.get();
     retArray.push(result);
     localStorage.setItem('playResults', JSON.stringify(retArray));
+    this.displayResults();
   }
 
   // セルをクリックした時のイベントリスナーの登録
@@ -104,5 +110,23 @@ export default class TicTacToe {
   // 手番の更新
   switchPlayer() {
     this.currentPlayer = this.currentPlayer === this.players.x ? this.players.o : this.players.x;
+  }
+
+  // 勝敗の表示
+  displayResults() {
+    const resultsElement = document.getElementById(`results`);
+    resultsElement.innerHTML = ``;
+    const results = this.get();
+    let message = '';
+    results.forEach((result) => {
+      if (result == 'Draw') {
+        message = result;
+      } else {
+        message = 'Win ' + result;
+      }
+      resultsElement.innerHTML += `
+        <div class="result">${message}</div>
+      `;
+    });
   }
 }
