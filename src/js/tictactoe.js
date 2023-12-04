@@ -34,6 +34,14 @@ export default class TicTacToe {
     this.clearCellClickListeners();
   }
 
+  save(result) {
+    let retString = localStorage.getItem('playResults');
+    // ローカルストレージ記録初回時に初期化
+    let retArray = retString === null ? Array(0) : JSON.parse(retString);
+    retArray.push(result);
+    localStorage.setItem('playResults', JSON.stringify(retArray));
+  }
+
   // セルをクリックした時のイベントリスナーの登録
   setCellClickListeners() {
     for (let row = 0; row < 3; row++) {
@@ -79,11 +87,13 @@ export default class TicTacToe {
       // 決着がついた場合
       this.winner = this.currentPlayer;
       console.log(`Winner is '${this.winner.symbol}'`);
+      this.save(this.winner.symbol);
     } else {
       // 決着がついていない場合
       if (this.board.isBoardFull()) {
         // 引き分けの場合
         console.log('Draw!');
+        this.save('Draw');
       } else {
         // 試合続行の場合
         this.switchPlayer();
