@@ -39,3 +39,8 @@ td {
 td:hover {
   background-color: #e0e0e0;
 }
+
+.bingo {
+  background-color: red;
+  pointer-events: none;
+}

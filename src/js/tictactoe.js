@@ -31,8 +31,8 @@ export default class TicTacToe {
   }
 
   quit() {
-    this.board = null;
     this.clearCellClickListeners();
+    this.board = null;
   }
 
   // セルをクリックした時のイベントリスナーの登録

@@ -19,6 +19,7 @@ export default class Board {
         const cellId = `cell-${row}-${col}`;
         this.boardState[row][col].uiElement = document.getElementById(cellId);
         this.boardState[row][col].uiElement.textContent = '';
+        this.boardState[row][col].uiElement.classList.remove('bingo');
       }
     }
   }
@@ -40,6 +41,7 @@ export default class Board {
   isGameOver() {
     // 同じ要素を使用してゲーム状態を確認
     const currentSymbol = this.game.currentPlayer.symbol;
+    let isBingo = false;
 
     for (let i = 0; i < 3; i++) {
       // 横が揃う
@@ -48,7 +50,10 @@ export default class Board {
         this.boardState[i][1].symbol === currentSymbol &&
         this.boardState[i][2].symbol === currentSymbol
       ) {
-        return true;
+        this.boardState[i][0].uiElement.classList.add('bingo');
+        this.boardState[i][1].uiElement.classList.add('bingo');
+        this.boardState[i][2].uiElement.classList.add('bingo');
+        isBingo = true;
       }
 
       // 縦が揃う
@@ -57,7 +62,10 @@ export default class Board {
         this.boardState[1][i].symbol === currentSymbol &&
         this.boardState[2][i].symbol === currentSymbol
       ) {
-        return true;
+        this.boardState[0][i].uiElement.classList.add('bingo');
+        this.boardState[1][i].uiElement.classList.add('bingo');
+        this.boardState[2][i].uiElement.classList.add('bingo');
+        isBingo = true;
       }
     }
 
@@ -67,7 +75,10 @@ export default class Board {
       this.boardState[1][1].symbol === currentSymbol &&
       this.boardState[2][2].symbol === currentSymbol
     ) {
-      return true;
+      this.boardState[0][0].uiElement.classList.add('bingo');
+      this.boardState[1][1].uiElement.classList.add('bingo');
+      this.boardState[2][2].uiElement.classList.add('bingo');
+      isBingo = true;
     }
 
     // 斜めが揃う
@@ -76,10 +87,13 @@ export default class Board {
       this.boardState[1][1].symbol === currentSymbol &&
       this.boardState[2][0].symbol === currentSymbol
     ) {
-      return true;
+      this.boardState[0][2].uiElement.classList.add('bingo');
+      this.boardState[1][1].uiElement.classList.add('bingo');
+      this.boardState[2][0].uiElement.classList.add('bingo');
+      isBingo = true;
     }
 
-    return false;
+    return isBingo;
   }
 
   isBoardFull() {
