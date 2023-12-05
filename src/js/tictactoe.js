@@ -1,5 +1,6 @@
 import Board from './board.js';
 import HumanPlayer from './players/human-player.js';
+import confetti from 'https://esm.run/canvas-confetti@1';
 
 export default class TicTacToe {
   constructor() {
@@ -81,6 +82,7 @@ export default class TicTacToe {
       this.winner = this.currentPlayer;
       console.log(`Winner is '${this.winner.symbol}'`);
       this.savePlayResults(this.winner.symbol);
+      confetti({ particleCount: 150, spread: 60 });
     } else {
       // 決着がついていない場合
       if (this.board.isBoardFull()) {
