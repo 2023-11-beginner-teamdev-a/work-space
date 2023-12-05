@@ -4,49 +4,58 @@ export default class Board {
   }
 
   init() {
-    // nullで初期化された3x3の配列を生成
-    this.cells = Array(3)
+    // ゲーム状態とUI状態を統合した2D配列を生成
+    this.boardState = Array(3)
       .fill(null)
-      .map(() => Array(3).fill(null));
+      .map(() =>
+        Array(3)
+          .fill()
+          .map(() => ({ symbol: null, uiElement: null }))
+      );
 
     // UIを初期化
     for (let row = 0; row < 3; row++) {
       for (let col = 0; col < 3; col++) {
-        document.getElementById(`cell-${row}-${col}`).textContent = '';
+        const cellId = `cell-${row}-${col}`;
+        this.boardState[row][col].uiElement = document.getElementById(cellId);
+        this.boardState[row][col].uiElement.textContent = '';
       }
     }
   }
 
   // セルが空白か確認
   isEmpty(row, col) {
-    return this.cells[row][col] === null;
+    return this.boardState[row][col].symbol === null;
   }
 
   // 一手進める
-  placeSymbol(row, col, cell) {
+  placeSymbol(row, col) {
     // プログラム側で保持している配列の更新
-    this.cells[row][col] = this.game.currentPlayer.symbol;
+    this.boardState[row][col].symbol = this.game.currentPlayer.symbol;
     // UIの更新
-    cell.textContent = this.game.currentPlayer.symbol;
+    this.boardState[row][col].uiElement.textContent = this.game.currentPlayer.symbol;
   }
 
   // 勝敗の確認
   isGameOver() {
+    // 同じ要素を使用してゲーム状態を確認
+    const currentSymbol = this.game.currentPlayer.symbol;
+
     for (let i = 0; i < 3; i++) {
       // 横が揃う
       if (
-        this.cells[i][0] === this.game.currentPlayer.symbol &&
-        this.cells[i][1] === this.game.currentPlayer.symbol &&
-        this.cells[i][2] === this.game.currentPlayer.symbol
+        this.boardState[i][0].symbol === currentSymbol &&
+        this.boardState[i][1].symbol === currentSymbol &&
+        this.boardState[i][2].symbol === currentSymbol
       ) {
         return true;
       }
 
       // 縦が揃う
       if (
-        this.cells[0][i] === this.game.currentPlayer.symbol &&
-        this.cells[1][i] === this.game.currentPlayer.symbol &&
-        this.cells[2][i] === this.game.currentPlayer.symbol
+        this.boardState[0][i].symbol === currentSymbol &&
+        this.boardState[1][i].symbol === currentSymbol &&
+        this.boardState[2][i].symbol === currentSymbol
       ) {
         return true;
       }
@@ -54,18 +63,18 @@ export default class Board {
 
     // 斜めが揃う
     if (
-      this.cells[0][0] === this.game.currentPlayer.symbol &&
-      this.cells[1][1] === this.game.currentPlayer.symbol &&
-      this.cells[2][2] === this.game.currentPlayer.symbol
+      this.boardState[0][0].symbol === currentSymbol &&
+      this.boardState[1][1].symbol === currentSymbol &&
+      this.boardState[2][2].symbol === currentSymbol
     ) {
       return true;
     }
 
     // 斜めが揃う
     if (
-      this.cells[0][2] === this.game.currentPlayer.symbol &&
-      this.cells[1][1] === this.game.currentPlayer.symbol &&
-      this.cells[2][0] === this.game.currentPlayer.symbol
+      this.boardState[0][2].symbol === currentSymbol &&
+      this.boardState[1][1].symbol === currentSymbol &&
+      this.boardState[2][0].symbol === currentSymbol
     ) {
       return true;
     }
@@ -74,6 +83,7 @@ export default class Board {
   }
 
   isBoardFull() {
-    return this.cells.every((row) => row.every((cell) => cell !== null));
+    // ゲーム状態を確認
+    return this.boardState.every((row) => row.every((cell) => cell.symbol !== null));
   }
 }

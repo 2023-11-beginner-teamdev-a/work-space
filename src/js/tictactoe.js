@@ -39,7 +39,7 @@ export default class TicTacToe {
   setCellClickListeners() {
     for (let row = 0; row < 3; row++) {
       for (let col = 0; col < 3; col++) {
-        const cell = document.getElementById(`cell-${row}-${col}`);
+        const cell = this.board.boardState[row][col].uiElement;
         cell.addEventListener('click', () => {
           if (!this.board.isGameOver() && this.board.isEmpty(row, col)) {
             this.handleCellClick(row, col);
@@ -53,7 +53,7 @@ export default class TicTacToe {
   clearCellClickListeners() {
     for (let row = 0; row < 3; row++) {
       for (let col = 0; col < 3; col++) {
-        const cell = document.getElementById(`cell-${row}-${col}`);
+        const cell = this.board.boardState[row][col].uiElement;
         cell.removeEventListener('click', () => {
           if (!this.board.isGameOver() && this.board.isEmpty(row, col)) {
             this.handleCellClick(row, col);
@@ -65,16 +65,13 @@ export default class TicTacToe {
 
   // セルがクリックされた時の処理
   handleCellClick(row, col) {
-    // セルの取得
-    const cell = document.getElementById(`cell-${row}-${col}`);
-
     // すでに埋まっているマスをクリックした場合何もしない
     if (!this.board.isEmpty(row, col)) {
       return;
     }
 
     // 一手進める（シンボルを置く）
-    this.board.placeSymbol(row, col, cell);
+    this.board.placeSymbol(row, col);
 
     if (this.board.isGameOver()) {
       // 決着がついた場合
