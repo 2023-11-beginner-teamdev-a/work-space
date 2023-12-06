@@ -80,11 +80,13 @@ td:hover {
   margin: 15% auto;
   padding: 20px;
   border: 1px solid #888;
-  width: 20%;
+  width: 30%;
+  font-family: Bradley Hand, cursive;
 }
 
 #modal-result {
   text-align: center;
+  font-size: 40px;
 }
 
 .aniamtion {

@@ -82,7 +82,7 @@ export default class TicTacToe {
       // 決着がついた場合
       this.winner = this.currentPlayer;
       this.savePlayResults(this.winner.symbol);
-      this.modal.openModal(`🎉Conglatulation🎉 \n Winner is ${this.winner.symbol}`);
+      this.modal.openModal(`🎉Conglaturation🎉 <br> Winner is ${this.winner.symbol}`);
       confetti({ particleCount: 150, spread: 60 });
     } else {
       // 決着がついていない場合
