@@ -43,55 +43,37 @@ export default class Board {
     const currentSymbol = this.game.currentPlayer.symbol;
     let isBingo = false;
 
+    const checkLine = (a, b, c) => {
+      if (a.symbol === currentSymbol && b.symbol === currentSymbol && c.symbol === currentSymbol) {
+        a.uiElement.classList.add('bingo');
+        b.uiElement.classList.add('bingo');
+        c.uiElement.classList.add('bingo');
+        isBingo = true;
+      }
+    };
+
+    // 横が揃う判定
+    const checkHorizontal = (row) => {
+      checkLine(this.boardState[row][0], this.boardState[row][1], this.boardState[row][2]);
+    };
+
+    // 縦が揃う判定
+    const checkVertical = (col) => {
+      checkLine(this.boardState[0][col], this.boardState[1][col], this.boardState[2][col]);
+    };
+
+    // 斜めが揃う判定
+    const checkDiagonal = () => {
+      checkLine(this.boardState[0][0], this.boardState[1][1], this.boardState[2][2]);
+      checkLine(this.boardState[0][2], this.boardState[1][1], this.boardState[2][0]);
+    };
+
     for (let i = 0; i < 3; i++) {
-      // 横が揃う
-      if (
-        this.boardState[i][0].symbol === currentSymbol &&
-        this.boardState[i][1].symbol === currentSymbol &&
-        this.boardState[i][2].symbol === currentSymbol
-      ) {
-        this.boardState[i][0].uiElement.classList.add('bingo');
-        this.boardState[i][1].uiElement.classList.add('bingo');
-        this.boardState[i][2].uiElement.classList.add('bingo');
-        isBingo = true;
-      }
-
-      // 縦が揃う
-      if (
-        this.boardState[0][i].symbol === currentSymbol &&
-        this.boardState[1][i].symbol === currentSymbol &&
-        this.boardState[2][i].symbol === currentSymbol
-      ) {
-        this.boardState[0][i].uiElement.classList.add('bingo');
-        this.boardState[1][i].uiElement.classList.add('bingo');
-        this.boardState[2][i].uiElement.classList.add('bingo');
-        isBingo = true;
-      }
+      checkHorizontal(i);
+      checkVertical(i);
     }
 
-    // 斜めが揃う
-    if (
-      this.boardState[0][0].symbol === currentSymbol &&
-      this.boardState[1][1].symbol === currentSymbol &&
-      this.boardState[2][2].symbol === currentSymbol
-    ) {
-      this.boardState[0][0].uiElement.classList.add('bingo');
-      this.boardState[1][1].uiElement.classList.add('bingo');
-      this.boardState[2][2].uiElement.classList.add('bingo');
-      isBingo = true;
-    }
-
-    // 斜めが揃う
-    if (
-      this.boardState[0][2].symbol === currentSymbol &&
-      this.boardState[1][1].symbol === currentSymbol &&
-      this.boardState[2][0].symbol === currentSymbol
-    ) {
-      this.boardState[0][2].uiElement.classList.add('bingo');
-      this.boardState[1][1].uiElement.classList.add('bingo');
-      this.boardState[2][0].uiElement.classList.add('bingo');
-      isBingo = true;
-    }
+    checkDiagonal();
 
     return isBingo;
   }
