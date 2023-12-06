@@ -18,7 +18,6 @@
 
 body {
   background: var(--background-color-primary);
-  display: flex;
 }
 
 .container h1 {

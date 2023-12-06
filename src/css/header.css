@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+:root {
+  --background-color-primary: white;
+  --head-text-color-primary: black;
+  --text-color-primary: rgb(58, 58, 58);
+  --background-color-dark: #1f1c1c;
+  --head-text-color-dark: aliceblue;
+  --text-color-dark: rgb(201, 201, 201);
+}
+
+.navbar li {
+  list-style: none;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: var(--head-text-color-primary);
+  font-size: medium;
+}
+
+.navbar a:hover {
+  color: var(--text-color-primary);
+}
+
+header {
+  position: relative;
+  padding: 0 2rem;
+}
+
+.navbar {
+  width: 100%;
+  height: 80px;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar .navbarLinks {
+  display: flex;
+  gap: 2rem;
+}
+
+.navbar .btn {
+  width: 15%;
+  height: 40px;
+  background: rgb(104, 32, 104);
+  border: none;
+  outline: none;
+  border-radius: 40px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  font-size: 16px;
+  color: aliceblue;
+  font-weight: 600;
+  margin: 20px 10px;
+}
+.navbar i {
+  font-size: 200%;
+  text-align: center;
+  justify-content: center;
+}
+
+/* doropdownMenu */
+.dropdownMenu {
+  position: absolute;
+  right: 2rem;
+  top: 60px;
+  width: 300px;
+  height: 0px;
+  background: white;
+  backdrop-filter: blur(15px);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.dropdownMenu.open {
+  height: 200px;
+}
+
+.dropdownMenu li {
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dropdownMenu a {
+  text-decoration: none;
+}
+
+.dropdownMenu .btn {
+  width: 40%;
+  height: 40px;
+  background: rgb(104, 32, 104);
+  border: none;
+  outline: none;
+  border-radius: 40px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  font-size: 16px;
+  color: aliceblue;
+  font-weight: 600;
+}
+
+@media (max-width: 992px) {
+  .navbar .navbarLinks,
+  .navbar .btn {
+    display: none;
+  }
+
+  .navbar .menuBtn {
+    display: block;
+  }
+
+  .dropdownMenu {
+    display: block;
+  }
+}
+
+@media (max-width: 576px) {
+  .dropdownMenu {
+    left: 2rem;
+    width: unset;
+  }
+}
