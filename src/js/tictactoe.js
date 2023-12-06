@@ -1,6 +1,7 @@
 import Board from './board.js';
 import HumanPlayer from './players/human-player.js';
-
+import Modal from './modal.js';
+import confetti from 'https://esm.run/canvas-confetti@1';
 export default class TicTacToe {
   constructor() {
     this.board = null;
@@ -15,6 +16,7 @@ export default class TicTacToe {
     // 現在の手番を保持
     this.currentPlayer = this.players.x;
     this.board.init();
+    this.modal = new Modal();
   }
 
   start() {
@@ -79,14 +81,15 @@ export default class TicTacToe {
     if (this.board.isGameOver()) {
       // 決着がついた場合
       this.winner = this.currentPlayer;
-      console.log(`Winner is '${this.winner.symbol}'`);
       this.savePlayResults(this.winner.symbol);
+      this.modal.openModal(`🎉Conglaturation🎉 <br> Winner is ${this.winner.symbol}`);
+      confetti({ particleCount: 150, spread: 60 });
     } else {
       // 決着がついていない場合
       if (this.board.isBoardFull()) {
         // 引き分けの場合
-        console.log('Draw!');
         this.savePlayResults('Draw');
+        this.modal.openModal('Draw');
       } else {
         // 試合続行の場合
         this.switchPlayer();
