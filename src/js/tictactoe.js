@@ -5,7 +5,8 @@ import confetti from 'https://esm.run/canvas-confetti@1';
 
 export default class TicTacToe {
   constructor() {
-    this.board = null;
+    this.board = new Board(this);
+    this.modal = new Modal();
   }
 
   init() {
@@ -17,11 +18,9 @@ export default class TicTacToe {
     // 現在の手番を保持
     this.currentPlayer = this.players.x;
     this.board.init();
-    this.modal = new Modal();
   }
 
   start() {
-    this.board = new Board(this);
     this.init();
     this.setCellClickListeners();
   }
@@ -32,9 +31,13 @@ export default class TicTacToe {
     this.setCellClickListeners();
   }
 
+  restart() {
+    this.modal.close();
+    this.reset();
+  }
+
   quit() {
     this.clearCellClickListeners();
-    this.board = null;
   }
 
   // セルをクリックした時のイベントリスナーの登録

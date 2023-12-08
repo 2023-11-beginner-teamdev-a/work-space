@@ -11,7 +11,6 @@ export default class Modal {
       ${message} <br>
       X: ${scores.x}, O: ${scores.o}, Draw: ${scores.draw}
     `;
-    this.close();
   }
 
   open() {
@@ -19,10 +18,6 @@ export default class Modal {
   }
 
   close() {
-    this.modal.addEventListener('click', (event) => {
-      if (event.target == modal) {
-        modal.style.display = 'none';
-      }
-    });
+    this.modal.style.display = 'none';
   }
 }

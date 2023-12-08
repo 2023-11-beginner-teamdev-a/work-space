@@ -20,10 +20,8 @@ resetTicTacToeBtn.addEventListener('click', function () {
 });
 
 // モーダル内のリスタートボタン
-// TODO: Modalクラスに組み込んでも良いかも
 restartTicTacToeBtn.addEventListener('click', function () {
-  document.getElementById('modal').style.display = 'none';
-  ticTacToe.reset();
+  ticTacToe.restart();
 });
 
 quitTicTacToeBtn.addEventListener('click', function () {
