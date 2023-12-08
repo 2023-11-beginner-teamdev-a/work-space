@@ -2,6 +2,7 @@ import TicTacToe from './tictactoe.js';
 
 const startTicTacToeBtn = document.getElementById('start-tictactoe');
 const resetTicTacToeBtn = document.getElementById('reset-tictactoe');
+const restartTicTacToeBtn = document.getElementById('restart-tictactoe');
 const quitTicTacToeBtn = document.getElementById('quit-tictactoe');
 const boardTable = document.getElementById('game-board');
 const resultBoard = document.getElementById('results-board');
@@ -22,11 +23,15 @@ resetTicTacToeBtn.addEventListener('click', function () {
   ticTacToe.reset();
 });
 
+// モーダル内のリスタートボタン
+restartTicTacToeBtn.addEventListener('click', function () {
+  ticTacToe.restart();
+});
+
 quitTicTacToeBtn.addEventListener('click', function () {
   boardTable.classList.add('inactive');
   resetTicTacToeBtn.classList.add('inactive');
   this.classList.add('inactive');
-  resultBoard.classList.add('inactive');
   startTicTacToeBtn.classList.remove('inactive');
   audioCtrl.classList.add('inactive');
   ticTacToe.quit();

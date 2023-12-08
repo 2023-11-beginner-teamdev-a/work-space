@@ -3,9 +3,11 @@ import HumanPlayer from './players/human-player.js';
 import Modal from './modal.js';
 import Audio from './audio.js';
 import confetti from 'https://esm.run/canvas-confetti@1';
+
 export default class TicTacToe {
   constructor() {
-    this.board = null;
+    this.board = new Board(this);
+    this.modal = new Modal();
   }
 
   init() {
@@ -23,10 +25,8 @@ export default class TicTacToe {
   }
 
   start() {
-    this.board = new Board(this);
     this.init();
     this.setCellClickListeners();
-    this.displayResults();
   }
 
   reset() {
@@ -35,9 +35,13 @@ export default class TicTacToe {
     this.setCellClickListeners();
   }
 
+  restart() {
+    this.modal.close();
+    this.reset();
+  }
+
   quit() {
     this.clearCellClickListeners();
-    this.board = null;
   }
 
   // セルをクリックした時のイベントリスナーの登録
@@ -81,15 +85,15 @@ export default class TicTacToe {
     if (this.board.isGameOver()) {
       // 決着がついた場合
       this.winner = this.currentPlayer;
-      this.savePlayResults(this.winner.symbol);
-      this.modal.openModal(`🎉Conglaturation🎉 <br> Winner is ${this.winner.symbol}`);
+      this.saveResult(this.winner.symbol);
+      this.modal.displayResults(this.winner, this.getScores());
       confetti({ particleCount: 150, spread: 60 });
     } else {
       // 決着がついていない場合
       if (this.board.isBoardFull()) {
         // 引き分けの場合
-        this.savePlayResults('Draw');
-        this.modal.openModal('Draw');
+        this.saveResult('Draw');
+        this.modal.displayResults(null, this.getScores());
       } else {
         // 試合続行の場合
         this.switchPlayer();
@@ -102,36 +106,21 @@ export default class TicTacToe {
     this.currentPlayer = this.currentPlayer === this.players.x ? this.players.o : this.players.x;
   }
 
-  // 勝敗の取得
-  getPlayResults() {
-    const localStorageStringData = localStorage.getItem('playResults');
-    // ローカルストレージ初回記録時に初期化
-    return localStorageStringData === null ? Array(0) : JSON.parse(localStorageStringData);
-  }
-
   // 勝敗の保存
-  savePlayResults(result) {
-    let localStorageArrayData = this.getPlayResults();
-    localStorageArrayData.push(result);
-    localStorage.setItem('playResults', JSON.stringify(localStorageArrayData));
-    this.displayResults();
+  saveResult(result) {
+    // スコアの初期化
+    const scores = JSON.parse(localStorage.getItem('scores')) ?? { x: 0, o: 0, draw: 0 };
+    if (result === 'x') {
+      scores.x++;
+    } else if (result === 'o') {
+      scores.o++;
+    } else {
+      scores.draw++;
+    }
+    localStorage.setItem('scores', JSON.stringify(scores));
   }
 
-  // 勝敗の表示
-  displayResults() {
-    const resultsElement = document.getElementById(`results`);
-    resultsElement.innerHTML = ``;
-    const results = this.getPlayResults();
-    let message = '';
-    results.forEach((result) => {
-      if (result === 'Draw') {
-        message = result;
-      } else {
-        message = 'Win ' + result;
-      }
-      resultsElement.innerHTML += `
-        <div class="result">${message}</div>
-      `;
-    });
+  getScores() {
+    return JSON.parse(localStorage.getItem('scores'));
   }
 }
