@@ -1,10 +1,36 @@
-:root {
-  --background-color-primary: white;
-  --head-text-color-primary: black;
-  --text-color-primary: rgb(58, 58, 58);
-  --background-color-dark: #1f1c1c;
-  --head-text-color-dark: aliceblue;
-  --text-color-dark: rgb(201, 201, 201);
+@import url('https://fonts.googleapis.com/css?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  width: 100%;
+  background: var(--background-color-primary);
+}
+
+.start {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+#start-tictactoe {
+  width: 20%;
+  height: 40px;
+  background: var(--btn-color);
+  border: none;
+  outline: none;
+  border-radius: 40px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  font-size: 16px;
+  color: var(--btn-text-color);
+  font-weight: 600;
 }
 
 #game-board {
