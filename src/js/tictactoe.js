@@ -1,6 +1,7 @@
 import Board from './board.js';
 import HumanPlayer from './players/human-player.js';
 import Modal from './modal.js';
+import Audio from './audio.js';
 import confetti from 'https://esm.run/canvas-confetti@1';
 export default class TicTacToe {
   constructor() {
@@ -17,6 +18,8 @@ export default class TicTacToe {
     this.currentPlayer = this.players.x;
     this.board.init();
     this.modal = new Modal();
+    this.audio = new Audio();
+    this.audio.enableMute();
   }
 
   start() {
