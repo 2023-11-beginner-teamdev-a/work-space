@@ -1,13 +1,23 @@
 export default class Modal {
-  openModal(message) {
-    const modal = document.getElementById('modal');
+  constructor() {
+    this.modal = document.getElementById('modal');
+  }
+
+  displayResults(winner, scores) {
+    this.open();
     const modalResult = document.getElementById('modal-result');
-    modal.style.display = 'block';
-    modalResult.innerHTML = message;
-    modal.addEventListener('click', (event) => {
-      if (event.target == modal) {
-        modal.style.display = 'none';
-      }
-    });
+    const message = winner === null ? 'Draw' : `Winner is ${winner.symbol}`;
+    modalResult.innerHTML = `
+      ${message} <br>
+      X: ${scores.x}, O: ${scores.o}, Draw: ${scores.draw}
+    `;
+  }
+
+  open() {
+    this.modal.style.display = 'block';
+  }
+
+  close() {
+    this.modal.style.display = 'none';
   }
 }

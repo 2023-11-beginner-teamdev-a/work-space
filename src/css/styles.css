@@ -80,19 +80,6 @@ body {
   transform: translate(-50%, -50%);
   /* 中央寄せ用 */
 }
-
-#results-title {
-  font-weight: bold;
-  margin-top: 1%;
-  color: var(--text-color-primary);
-}
-
-#results {
-  width: 60px;
-  text-align: center;
-  color: var(--text-color-primary);
-}
-
 .inactive {
   display: none;
 }
@@ -110,6 +97,16 @@ td {
 
 td:hover {
   background-color: var(--board-btn-hover-primary);
+}
+
+.bingo {
+  background-color: red;
+  pointer-events: none;
+}
+
+.bingo {
+  background-color: red;
+  pointer-events: none;
 }
 
 .fadeIn {
