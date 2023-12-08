@@ -1,14 +1,31 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
 
 :root {
+  /* ライトモード */
   --background-color-primary: white;
-  --head-text-color-primary: black;
+  --title-text-color-primary: black;
   --text-color-primary: rgb(58, 58, 58);
-  --background-color-dark: #1f1c1c;
-  --head-text-color-dark: aliceblue;
-  --text-color-dark: rgb(201, 201, 201);
+  --header-btn-color-primary: #1f1c1c;
+  --header-btn-text-primary: aliceblue;
+  --header-btn-hover-primary: black;
+
+  /* 共通カラー */
+  --btn-color: purple;
+  --btn-text-color: aliceblue;
+  --btn-hover: rgb(108, 0, 108);
   --header-color: purple;
-  --header-text-color: white;
+  --header-text-color: aliceblue;
+  --header-text-hover: rgb(200, 208, 215);
+  --footer-color: purple;
+  --footer-text-color: aliceblue;
+
+  /* ダークモード */
+  --background-color-dark: #1f1c1c;
+  --title-text-color-dark: aliceblue;
+  --text-color-dark: rgb(201, 201, 201);
+  --header-btn-color-dark: aliceblue;
+  --header-btn-text-dark: purple;
+  --header-btn-hover-dark: rgb(200, 208, 215);
 }
 
 .navbar .navbarLinks {
@@ -24,12 +41,12 @@
 }
 
 .navbar a {
-    text-decoration: none;
-    color: var(--header-text-color);
+  text-decoration: none;
+  color: var(--header-text-color);
 }
 
 .navbar a:hover {
-  color: gray;
+  color: var(--header-text-hover);
 }
 
 header {
@@ -62,17 +79,22 @@ header {
 .navbar .btn {
   width: 15%;
   height: 40px;
-  background: rgb(104, 32, 104);
+  background: var(--header-btn-color-primary);
   border: none;
   outline: none;
   border-radius: 40px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   cursor: pointer;
   font-size: 16px;
-  color: aliceblue;
+  color: var(--header-btn-text-primary);
   font-weight: 600;
   margin: 20px 10px;
 }
+
+.navbar .btn:hover {
+  background: var(--header-btn-hover-primary);
+}
+
 .navbar i {
   font-size: 200%;
   text-align: center;
@@ -83,17 +105,17 @@ header {
 .dropdownMenu {
   position: absolute;
   right: 2rem;
-  top: 60px;
+  top: 100px;
   width: 300px;
   height: 0px;
-  background: white;
+  background: var(--header-color);
   backdrop-filter: blur(15px);
   border-radius: 10px;
   overflow: hidden;
 }
 
 .dropdownMenu.open {
-  height: 200px;
+  height: 100px;
 }
 
 .dropdownMenu li {
@@ -105,20 +127,25 @@ header {
 
 .dropdownMenu a {
   text-decoration: none;
+  color: var(--header-text-color);
 }
 
 .dropdownMenu .btn {
   width: 40%;
   height: 40px;
-  background: rgb(104, 32, 104);
+  background: var(--header-btn-color-primary);
   border: none;
   outline: none;
   border-radius: 40px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   cursor: pointer;
   font-size: 16px;
-  color: aliceblue;
+  color: var(--header-btn-text-primary);
   font-weight: 600;
+}
+
+.dropdownMenu .btn:hover {
+  background: var(--header-btn-hover-primary);
 }
 
 @media (max-width: 992px) {
@@ -141,4 +168,22 @@ header {
     left: 2rem;
     width: unset;
   }
+}
+
+.dark .navbar .btn {
+  background: var(--header-btn-color-dark);
+  color: var(--header-btn-text-dark);
+}
+
+.dark .navbar .btn:hover {
+  background: var(--header-btn-hover-dark);
+}
+
+.dark .dropdownMenu .btn {
+  background: var(--header-btn-color-dark);
+  color: var(--header-btn-text-dark);
+}
+
+.dark .dropdownMenu .btn:hover {
+  background: var(--header-btn-hover-dark);
 }

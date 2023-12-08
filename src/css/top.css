@@ -1,14 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
 
-:root {
-  --background-color-primary: white;
-  --head-text-color-primary: black;
-  --text-color-primary: rgb(58, 58, 58);
-  --background-color-dark: #1f1c1c;
-  --head-text-color-dark: aliceblue;
-  --text-color-dark: rgb(201, 201, 201);
-}
-
 * {
   margin: 0;
   padding: 0;
@@ -23,7 +14,7 @@ body {
 }
 
 .container h1 {
-  color: var(--head-text-color-primary);
+  color: var(--title-text-color-primary);
   font-size: 48px;
   font-weight: 800;
 }
@@ -48,29 +39,29 @@ body {
 }
 
 .container .imgBox {
-    width: 50%;
-    text-align: center;
-    justify-content: center;
-    margin: 20px 30px;
+  width: 50%;
+  text-align: center;
+  justify-content: center;
+  margin: 20px 30px;
 }
 
 .contentBox .btn {
   width: 20%;
   height: 40px;
-  background: rgb(104, 32, 104);
+  background: var(--btn-color);
   border: none;
   outline: none;
   border-radius: 40px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   cursor: pointer;
   font-size: 16px;
-  color: aliceblue;
+  color: var(--btn-text-color);
   font-weight: 600;
   margin: 20px 10px;
 }
 
 .contentBox .btn:hover {
-  background: rgb(108, 50, 108);
+  background: var(--btn-hover);
 }
 
 .imgBox img {
@@ -85,7 +76,7 @@ body {
 }
 
 .dark .container h1 {
-  color: var(--head-text-color-dark);
+  color: var(--title-text-color-dark);
 }
 
 .dark .container p {
