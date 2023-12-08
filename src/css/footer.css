@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+:root {
+  --background-color-primary: rgb(240, 240, 240);
+  --background-color-secondary: rgb(200, 200, 200);
+  --head-text-color-primary: black;
+  --text-color-primary: rgb(58, 58, 58);
+  --background-color-dark: #1f1c1c;
+  --head-text-color-dark: aliceblue;
+  --text-color-dark: rgb(201, 201, 201);
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: var(--background-color-secondary);
+  color: var(--head-text-color-primary);
+  text-align: center;
+  padding: 10px 0;
+}

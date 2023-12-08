@@ -7,32 +7,48 @@
   --background-color-dark: #1f1c1c;
   --head-text-color-dark: aliceblue;
   --text-color-dark: rgb(201, 201, 201);
+  --header-color: purple;
+  --header-text-color: white;
 }
 
-.navbar li {
+.navbar .navbarLinks {
   list-style: none;
-}
-
-.navbar a {
   text-decoration: none;
-  color: var(--head-text-color-primary);
+  color: var(--header-text-color);
   font-size: medium;
 }
 
+.navbar .navbarLogo {
+  font-size: 30px;
+  text-decoration: none;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: var(--header-text-color);
+}
+
 .navbar a:hover {
-  color: var(--text-color-primary);
+  color: gray;
 }
 
 header {
-  position: relative;
-  padding: 0 2rem;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: var(--header-color);
+  color: var(--header-text-color);
+  text-align: center;
+  padding: 10px 0;
+  z-index: 999;
 }
 
 .navbar {
+  box-sizing: border-box;
   width: 100%;
-  height: 80px;
-  max-width: 1200px;
-  margin: 0 auto;
+  height: 60px;
+  margin: 0;
+  padding: 0 60px;
   display: flex;
   align-items: center;
   justify-content: space-between;

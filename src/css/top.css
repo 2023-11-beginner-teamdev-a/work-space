@@ -17,6 +17,8 @@
 }
 
 body {
+  width: 100%;
+  max-width: 1200px;
   background: var(--background-color-primary);
 }
 
@@ -38,11 +40,18 @@ body {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  margin: 20px 30px;
+  margin: 80px 30px;
 }
 
 .container .contentBox {
   width: 50%;
+}
+
+.container .imgBox {
+    width: 50%;
+    text-align: center;
+    justify-content: center;
+    margin: 20px 30px;
 }
 
 .contentBox .btn {
@@ -66,18 +75,9 @@ body {
 
 .imgBox img {
   position: relative;
-  max-width: 100%;
+  max-width: 60%;
   height: auto;
-}
-
-footer {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  background-color: #333;
-  color: #fff;
-  text-align: center;
-  padding: 10px 0;
+  z-index: 1;
 }
 
 .dark {
