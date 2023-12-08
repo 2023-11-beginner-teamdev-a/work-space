@@ -19,7 +19,42 @@ body {
   height: 100vh;
 }
 
+.end {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 #start-tictactoe {
+  width: 20%;
+  height: 40px;
+  background: var(--btn-color);
+  border: none;
+  outline: none;
+  border-radius: 40px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  font-size: 16px;
+  color: var(--btn-text-color);
+  font-weight: 600;
+}
+
+#reset-tictactoe {
+  width: 20%;
+  height: 40px;
+  background: var(--btn-color);
+  border: none;
+  outline: none;
+  border-radius: 40px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  font-size: 16px;
+  color: var(--btn-text-color);
+  font-weight: 600;
+  margin: 0 10px;
+}
+
+#quit-tictactoe {
   width: 20%;
   height: 40px;
   background: var(--btn-color);
@@ -49,11 +84,13 @@ body {
 #results-title {
   font-weight: bold;
   margin-top: 1%;
+  color: var(--text-color-primary);
 }
 
 #results {
   width: 60px;
   text-align: center;
+  color: var(--text-color-primary);
 }
 
 .inactive {
@@ -72,7 +109,7 @@ td {
 }
 
 td:hover {
-  background-color: #e0e0e0;
+  background-color: var(--board-btn-hover-primary);
 }
 
 .fadeIn {
@@ -95,6 +132,7 @@ td:hover {
 .symbol {
   font-size: 150px;
   font-family: Bradley Hand, cursive;
+  color: var(--title-text-color-primary);
 }
 
 .modal {
@@ -145,4 +183,20 @@ td:hover {
 
 .dark {
   background: var(--background-color-dark);
+}
+
+.dark .symbol {
+  color: var(--title-text-color-dark);
+}
+
+.dark .symbol:hover {
+  background-color: var(--board-btn-hover-dark);
+}
+
+.dark #results-title {
+  color: var(--text-color-dark);
+}
+
+.dark #results {
+  color: var(--text-color-dark);
 }

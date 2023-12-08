@@ -8,6 +8,7 @@
   --header-btn-color-primary: #1f1c1c;
   --header-btn-text-primary: aliceblue;
   --header-btn-hover-primary: black;
+  --board-btn-hover-primary: #e0e0e0;
 
   /* 共通カラー */
   --btn-color: purple;
@@ -26,6 +27,7 @@
   --header-btn-color-dark: aliceblue;
   --header-btn-text-dark: purple;
   --header-btn-hover-dark: rgb(200, 208, 215);
+  --board-btn-hover-dark: #2b2727;
 }
 
 .navbar .navbarLinks {
