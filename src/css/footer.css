@@ -9,3 +9,9 @@ footer {
   text-align: center;
   padding: 10px 0;
 }
+
+.icon-quote, .icon-quote:hover{
+  background-color: var(--footer-color);
+  color: var(--footer-text-color);
+  text-decoration: none;
+}
