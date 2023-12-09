@@ -7,8 +7,6 @@ import confetti from 'https://esm.run/canvas-confetti@1';
 export default class TicTacToe {
   constructor() {
     this.board = new Board(this);
-    // this.modal = new Modal();
-    // this.audio = new BGM();
   }
 
   init() {
@@ -21,13 +19,13 @@ export default class TicTacToe {
     this.currentPlayer = this.players.x;
     this.board.init();
     this.modal = new Modal();
-    this.audio = new BGM();
+    this.bgm = new BGM();
   }
 
   start() {
     this.init();
     this.setCellClickListeners();
-    this.audio.bgmregister();
+    this.bgm.bgmregister();
   }
 
   reset() {
@@ -88,7 +86,7 @@ export default class TicTacToe {
       this.winner = this.currentPlayer;
       this.saveResult(this.winner.symbol);
       this.modal.displayResults(this.winner, this.getScores());
-      this.audio.playbgm()
+      this.bgm.playbgm()
       confetti({ particleCount: 150, spread: 60 });
     } else {
       // 決着がついていない場合

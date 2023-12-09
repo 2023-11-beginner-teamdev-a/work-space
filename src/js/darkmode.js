@@ -1,7 +1,6 @@
 const body = document.querySelector('body');
 const darkmodeBtn = document.getElementById('darkMode');
 const darkmodeDropdown = document.querySelector('#darkModeDropdown');
-console.log(darkmodeDropdown);
 
 var mode = localStorage.getItem('mode');
 if (mode === 'dark') {

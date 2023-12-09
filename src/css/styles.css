@@ -23,7 +23,6 @@ body {
   display: flex;
   align-items: start;
   justify-content: center;
-  height: 100vh;
   margin-top: -400px;
 }
 
@@ -70,6 +69,21 @@ body {
   font-weight: 600;
 }
 
+#toggle-BGM{
+  width: 20%;
+  height: 40px;
+  background: var(--btn-color);
+  border: none;
+  outline: none;
+  border-radius: 40px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  font-size: 16px;
+  color: var(--btn-text-color);
+  font-weight: 600;
+  margin: 0 20px;
+}
+
 #game-board {
   border: solid;
   width: 600px;
@@ -99,11 +113,6 @@ td {
 
 td:hover {
   background-color: var(--board-btn-hover-primary);
-}
-
-.bingo {
-  background-color: red;
-  pointer-events: none;
 }
 
 .bingo {
@@ -189,37 +198,6 @@ button {
   appearance: none;
 }
 
-#Audio-Control {
-  overflow: hidden;
-}
-
-#Audio-Control button {
-  border: 1px solid #ccc;
-  width: 40px;
-  float: left;
-  padding: 5px 0;
-  -webkit-transition: all 0.6s ease;
-  -moz-transition: all 0.6s ease;
-  -o-transition: all 0.6s ease;
-  transition: all 0.6s ease;
-}
-
-#Audio-Control button.on {
-  border-left: none;
-}
-
-#Audio-Control button.off {
-  border-right: none;
-}
-
-#Audio-Control button.active {
-  background: #ccc;
-}
-
-#Audio-Control button:not(.active):hover {
-  background: rgba(204, 204, 204, 0.3);
-}
-
 @media (max-width: 767px) {
   #game-board {
     width: 300px;
@@ -245,7 +223,7 @@ button {
   }
 
   .end {
-    margin-top: -500px;
+    margin-top: -300px;
   }
 }
 

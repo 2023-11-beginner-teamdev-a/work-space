@@ -1,26 +1,27 @@
 export default class BGM {
   constructor() {
-    this.toggleAudio = document.getElementById('toggleAudio');
+    this.BGMElement = document.getElementById('toggle-BGM');
     this.put = new Audio('../audio/試合終了のゴング.mp3');
-    this.enableMute = this.enableMute.bind(this);
+    this.toggleBGM = this.toggleBGM.bind(this);
   }
 
-  enableMute() {
-    this.toggleAudio.innerText = this.toggleAudio.innerText === 'OFF' ? 'ON' : 'OFF';
-    if (this.toggleAudio.innerText === 'ON'){
-      alert("勝敗決定時に効果音が出ます。音が出ても良い環境で実行してください")
+  toggleBGM() {
+    this.BGMElement.innerText = this.BGMElement.innerText === '効果音OFF' ? '効果音ON' : '効果音OFF';
+    if (this.BGMElement.innerText === '効果音ON'){
+      alert("勝敗決定時に効果音が出る設定になりました。音が出ても良い環境で実行してください")
+    } else {
+      alert("勝敗決定時に効果音が出ない設定になりました。")
     }
   }
 
   bgmregister() {
-    this.toggleAudio.addEventListener('click', this.enableMute);
+    this.BGMElement.addEventListener('click', this.toggleBGM);
   }
 
   playbgm(){
-    if (this.toggleAudio.innerText==='ON'){
+    if (this.BGMElement.innerText==='効果音ON'){
       this.put.play();
     }
   }
-
 }
 
