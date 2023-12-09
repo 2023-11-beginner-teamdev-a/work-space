@@ -4,9 +4,34 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./css/styles.css" />
+    <link rel="stylesheet" href="./css/header.css" />
+    <link rel="stylesheet" href="./css/footer.css" />
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
     <title>tic-tac-toe</title>
   </head>
   <body>
+    <header>
+      <div class="navbar">
+        <div class="navbarLogo">
+          <a href="top.html">tic-tac-toe</a>
+        </div>
+        <ul class="navbarLinks">
+          <li><a href="top.html">Home</a></li>
+          <!-- <li><a href="#">操作説明</a></li>
+          <li><a href="#">ルール</a></li> -->
+        </ul>
+        <button id="darkMode" class="btn">DarkMode</button>
+        <div class="menuBtn">
+          <i class="bx bx-menu"></i>
+        </div>
+      </div>
+      <div class="dropdownMenu">
+        <li><a href="top.html">Home</a></li>
+        <!-- <li><a href="#">操作説明</a></li>
+        <li><a href="#">ルール</a></li> -->
+        <li><button id="darkModeDropdown" class="btn">DarkMode</button></li>
+      </div>
+    </header>
     <table id="game-board" class="inactive fadeIn">
       <tr>
         <td id="cell-0-0" class="fadeIn symbol"></td>
@@ -24,9 +49,13 @@
         <td id="cell-2-2" class="fadeIn symbol"></td>
       </tr>
     </table>
-    <button id="start-tictactoe">Start</button>
-    <button id="reset-tictactoe" class="inactive">Reset</button>
-    <button id="quit-tictactoe" class="inactive">Quit</button>
+    <div class="btn">
+      <button id="start-tictactoe">Start</button>
+    </div>
+    <div class="end">
+      <button id="reset-tictactoe" class="inactive">Reset</button>
+      <button id="quit-tictactoe" class="inactive">Quit</button>
+    </div>
     <div id="modal" class="modal">
       <div class="modal-content aniamtion slidein">
         <p id="modal-result"></p>
@@ -37,5 +66,16 @@
       <button id="toggleAudio" type="button">OFF</button>
     </div>
     <script type="module" src="js/index.js" defer></script>
+<<<<<<< HEAD
+=======
+    <script type="module" src="js/modal.js" defer></script>
+    <script type="module" src="./js/darkmode.js" defer></script>
+    <script type="module" src="./js/header.js">
+      defer
+    </script>
+>>>>>>> develop
   </body>
+  <footer>
+    <p>© 2023-12 Recursion team development</p>
+  </footer>
 </html>

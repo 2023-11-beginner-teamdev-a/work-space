@@ -4,9 +4,34 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./css/top.css" />
+    <link rel="stylesheet" href="./css/header.css" />
+    <link rel="stylesheet" href="./css/footer.css" />
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
     <title>top</title>
   </head>
   <body>
+    <header>
+      <div class="navbar">
+        <div class="navbarLogo">
+          <a href="top.html">tic-tac-toe</a>
+        </div>
+        <ul class="navbarLinks">
+          <li><a href="top.html">Home</a></li>
+          <!-- <li><a href="#">操作説明</a></li>
+          <li><a href="#">ルール</a></li> -->
+        </ul>
+        <button id="darkMode" class="btn">DarkMode</button>
+        <div class="menuBtn">
+          <i class="bx bx-menu"></i>
+        </div>
+      </div>
+      <div class="dropdownMenu">
+        <li><a href="top.html">Home</a></li>
+        <!-- <li><a href="#">操作説明</a></li>
+        <li><a href="#">ルール</a></li> -->
+        <li><button id="darkModeDropdown" class="btn">DarkMode</button></li>
+      </div>
+    </header>
     <div class="container">
       <div class="contentBox">
         <h1>tic-tac-toe</h1>
@@ -14,13 +39,13 @@
         <p>このサイトでは気軽にtic-tac-toeをプレイすることができます。</p>
         <p>ぜひ下のボタンからプレイしてみてください</p>
         <button id="startTictactoe" class="btn" onclick="location.href='index.html'">Play</button>
-        <button id="tictactoeRules" class="btn">ルール</button>
-        <button id="tictactoeInstructions" class="btn">操作方法</button>
       </div>
       <div class="imgBox">
         <img src="./img/tic-tac-toe-640.jpg" />
       </div>
     </div>
+    <script src="./js/darkmode.js"></script>
+    <script src="./js/header.js"></script>
   </body>
   <footer>
     <p>© 2023-12 Recursion team development</p>
