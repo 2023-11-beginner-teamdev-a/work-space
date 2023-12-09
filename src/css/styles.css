@@ -1,3 +1,75 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  width: 100%;
+  background: var(--background-color-primary);
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.end {
+  display: flex;
+  align-items: start;
+  justify-content: center;
+  height: 100vh;
+  margin-top: -400px;
+}
+
+#start-tictactoe {
+  width: 20%;
+  height: 40px;
+  background: var(--btn-color);
+  border: none;
+  outline: none;
+  border-radius: 40px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  font-size: 16px;
+  color: var(--btn-text-color);
+  font-weight: 600;
+}
+
+#reset-tictactoe {
+  width: 20%;
+  height: 40px;
+  background: var(--btn-color);
+  border: none;
+  outline: none;
+  border-radius: 40px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  font-size: 16px;
+  color: var(--btn-text-color);
+  font-weight: 600;
+  margin: 0 20px;
+}
+
+#quit-tictactoe {
+  width: 20%;
+  height: 40px;
+  background: var(--btn-color);
+  border: none;
+  outline: none;
+  border-radius: 40px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  font-size: 16px;
+  color: var(--btn-text-color);
+  font-weight: 600;
+}
+
 #game-board {
   border: solid;
   width: 600px;
@@ -5,12 +77,11 @@
   border-spacing: 0;
   /* 中央寄せ用 */
   position: absolute;
-  top: 50%;
+  top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);
   /* 中央寄せ用 */
 }
-
 .inactive {
   display: none;
 }
@@ -27,7 +98,12 @@ td {
 }
 
 td:hover {
-  background-color: #e0e0e0;
+  background-color: var(--board-btn-hover-primary);
+}
+
+.bingo {
+  background-color: red;
+  pointer-events: none;
 }
 
 .bingo {
@@ -55,6 +131,7 @@ td:hover {
 .symbol {
   font-size: 150px;
   font-family: Bradley Hand, cursive;
+  color: var(--title-text-color-primary);
 }
 
 .modal {
@@ -101,4 +178,53 @@ td:hover {
   100% {
     transform: translateY(0);
   }
+}
+
+@media (max-width: 767px) {
+  #game-board {
+    width: 300px;
+    height: 300px;
+  }
+
+  td {
+    width: 100px;
+    height: 100px;
+  }
+
+  .symbol {
+    font-size: 80px;
+  }
+
+  .modal-content {
+    margin: 50% auto;
+    width: 70%;
+  }
+
+  #modal-result {
+    font-size: 70%;
+  }
+
+  .end {
+    margin-top: -500px;
+  }
+}
+
+.dark {
+  background: var(--background-color-dark);
+}
+
+.dark .symbol {
+  color: var(--title-text-color-dark);
+}
+
+.dark .symbol:hover {
+  background-color: var(--board-btn-hover-dark);
+}
+
+.dark #results-title {
+  color: var(--text-color-dark);
+}
+
+.dark #results {
+  color: var(--text-color-dark);
 }

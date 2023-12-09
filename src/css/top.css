@@ -8,18 +8,18 @@
 }
 
 body {
-  background: #1f1c1c;
-  display: flex;
+  width: 100%;
+  background: var(--background-color-primary);
 }
 
-h1 {
-  color: aliceblue;
+.container h1 {
+  color: var(--title-text-color-primary);
   font-size: 48px;
   font-weight: 800;
 }
 
-p {
-  color: rgb(201, 201, 201);
+.container p {
+  color: var(--text-color-primary);
   font-size: 18px;
 }
 
@@ -30,44 +30,54 @@ p {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  margin: 20px 30px;
+  margin: 80px 30px;
 }
 
 .container .contentBox {
   width: 50%;
 }
 
+.container .imgBox {
+  width: 50%;
+  text-align: center;
+  justify-content: center;
+  margin: 20px 30px;
+}
+
 .contentBox .btn {
   width: 20%;
   height: 40px;
-  background: rgb(104, 32, 104);
+  background: var(--btn-color);
   border: none;
   outline: none;
   border-radius: 40px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   cursor: pointer;
   font-size: 16px;
-  color: aliceblue;
+  color: var(--btn-text-color);
   font-weight: 600;
   margin: 20px 10px;
 }
 
 .contentBox .btn:hover {
-  background: rgb(108, 50, 108);
+  background: var(--btn-hover);
 }
 
 .imgBox img {
   position: relative;
-  max-width: 100%;
+  max-width: 60%;
   height: auto;
+  z-index: 1;
 }
 
-footer {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  background-color: #333;
-  color: #fff;
-  text-align: center;
-  padding: 10px 0;
+.dark {
+  background: var(--background-color-dark);
+}
+
+.dark .container h1 {
+  color: var(--title-text-color-dark);
+}
+
+.dark .container p {
+  color: var(--text-color-dark);
 }

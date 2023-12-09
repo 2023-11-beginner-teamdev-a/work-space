@@ -1,0 +1,11 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: var(--footer-color);
+  color: var(--footer-text-color);
+  text-align: center;
+  padding: 10px 0;
+}
