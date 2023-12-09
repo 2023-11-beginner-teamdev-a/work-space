@@ -180,7 +180,6 @@ td:hover {
   }
 }
 
-<<<<<<< HEAD
 button {
   background-color: transparent;
   border: none;
@@ -219,7 +218,8 @@ button {
 
 #Audio-Control button:not(.active):hover {
   background: rgba(204, 204, 204, 0.3);
-=======
+}
+
 @media (max-width: 767px) {
   #game-board {
     width: 300px;
@@ -267,5 +267,4 @@ button {
 
 .dark #results {
   color: var(--text-color-dark);
->>>>>>> develop
 }
