@@ -86,7 +86,6 @@ export default class TicTacToe {
       this.winner = this.currentPlayer;
       this.saveResult(this.winner.symbol);
       this.modal.displayResults(this.winner, this.getScores());
-      this.bgm.playbgm()
       confetti({ particleCount: 150, spread: 60 });
     } else {
       // 決着がついていない場合
@@ -118,6 +117,7 @@ export default class TicTacToe {
       scores.draw++;
     }
     localStorage.setItem('scores', JSON.stringify(scores));
+    this.bgm.playbgm()
   }
 
   getScores() {
