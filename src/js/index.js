@@ -5,7 +5,6 @@ const resetTicTacToeBtn = document.getElementById('reset-tictactoe');
 const restartTicTacToeBtn = document.getElementById('restart-tictactoe');
 const quitTicTacToeBtn = document.getElementById('quit-tictactoe');
 const boardTable = document.getElementById('game-board');
-const resultBoard = document.getElementById('results-board');
 const audioCtrl = document.getElementById('audioControl');
 const ticTacToe = new TicTacToe();
 
@@ -13,7 +12,6 @@ startTicTacToeBtn.addEventListener('click', function () {
   boardTable.classList.remove('inactive');
   resetTicTacToeBtn.classList.remove('inactive');
   quitTicTacToeBtn.classList.remove('inactive');
-  resultBoard.classList.remove('inactive');
   audioCtrl.classList.remove('inactive');
   this.classList.add('inactive');
   ticTacToe.start();

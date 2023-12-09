@@ -1,13 +1,14 @@
 import Board from './board.js';
 import HumanPlayer from './players/human-player.js';
 import Modal from './modal.js';
-import Audio from './audio.js';
+import BGM from './bgm.js';
 import confetti from 'https://esm.run/canvas-confetti@1';
 
 export default class TicTacToe {
   constructor() {
     this.board = new Board(this);
-    this.modal = new Modal();
+    // this.modal = new Modal();
+    // this.audio = new BGM();
   }
 
   init() {
@@ -20,13 +21,13 @@ export default class TicTacToe {
     this.currentPlayer = this.players.x;
     this.board.init();
     this.modal = new Modal();
-    this.audio = new Audio();
-    this.audio.enableMute();
+    this.audio = new BGM();
   }
 
   start() {
     this.init();
     this.setCellClickListeners();
+    this.audio.bgmregister();
   }
 
   reset() {
@@ -87,6 +88,7 @@ export default class TicTacToe {
       this.winner = this.currentPlayer;
       this.saveResult(this.winner.symbol);
       this.modal.displayResults(this.winner, this.getScores());
+      this.audio.playbgm()
       confetti({ particleCount: 150, spread: 60 });
     } else {
       // 決着がついていない場合
