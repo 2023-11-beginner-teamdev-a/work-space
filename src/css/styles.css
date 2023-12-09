@@ -23,7 +23,6 @@ body {
   display: flex;
   align-items: start;
   justify-content: center;
-  height: 100vh;
   margin-top: -400px;
 }
 
@@ -70,6 +69,21 @@ body {
   font-weight: 600;
 }
 
+#toggle-BGM{
+  width: 20%;
+  height: 40px;
+  background: var(--btn-color);
+  border: none;
+  outline: none;
+  border-radius: 40px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  font-size: 16px;
+  color: var(--btn-text-color);
+  font-weight: 600;
+  margin: 0 20px;
+}
+
 #game-board {
   border: solid;
   width: 600px;
@@ -99,11 +113,6 @@ td {
 
 td:hover {
   background-color: var(--board-btn-hover-primary);
-}
-
-.bingo {
-  background-color: red;
-  pointer-events: none;
 }
 
 .bingo {
@@ -149,16 +158,16 @@ td:hover {
 
 .modal-content {
   background-color: #fefefe;
-  margin: 15% auto;
+  margin: 20% auto;
   padding: 20px;
   border: 1px solid #888;
-  width: 30%;
+  width: 50%;
   font-family: Bradley Hand, cursive;
 }
 
 #modal-result {
   text-align: center;
-  font-size: 40px;
+  font-size: 2rem;
 }
 
 .aniamtion {
@@ -178,6 +187,15 @@ td:hover {
   100% {
     transform: translateY(0);
   }
+}
+
+button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  padding: 0;
+  appearance: none;
 }
 
 @media (max-width: 767px) {
@@ -201,11 +219,11 @@ td:hover {
   }
 
   #modal-result {
-    font-size: 70%;
+    font-size: 1.5rem;
   }
 
   .end {
-    margin-top: -500px;
+    margin-top: -300px;
   }
 }
 

@@ -5,12 +5,14 @@ const resetTicTacToeBtn = document.getElementById('reset-tictactoe');
 const restartTicTacToeBtn = document.getElementById('restart-tictactoe');
 const quitTicTacToeBtn = document.getElementById('quit-tictactoe');
 const boardTable = document.getElementById('game-board');
+const BGMBtn = document.getElementById('toggle-BGM');
 const ticTacToe = new TicTacToe();
 
 startTicTacToeBtn.addEventListener('click', function () {
   boardTable.classList.remove('inactive');
   resetTicTacToeBtn.classList.remove('inactive');
   quitTicTacToeBtn.classList.remove('inactive');
+  BGMBtn.classList.remove('inactive');
   this.classList.add('inactive');
   ticTacToe.start();
 });
@@ -29,6 +31,7 @@ quitTicTacToeBtn.addEventListener('click', function () {
   resetTicTacToeBtn.classList.add('inactive');
   this.classList.add('inactive');
   startTicTacToeBtn.classList.remove('inactive');
+  BGMBtn.classList.add('inactive');
   ticTacToe.quit();
 });
 
