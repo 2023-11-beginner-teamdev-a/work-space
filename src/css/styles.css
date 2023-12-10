@@ -12,22 +12,23 @@ body {
   background: var(--background-color-primary);
 }
 
-.btn {
+.start-button {
   display: flex;
-  align-items: center;
   justify-content: center;
-  height: 100vh;
+  align-items: center;
+  height: auto;
 }
 
-.end {
+.control-buttons {
   display: flex;
-  align-items: start;
   justify-content: center;
-  margin-top: -400px;
+  align-items: center;
+  height: auto;
+  margin-top: 20px;
 }
 
 #start-tictactoe {
-  width: 20%;
+  width: 250px;
   height: 40px;
   background: var(--btn-color);
   border: none;
@@ -40,8 +41,8 @@ body {
   font-weight: 600;
 }
 
-#reset-tictactoe {
-  width: 20%;
+.control-button {
+  width: 100px;
   height: 40px;
   background: var(--btn-color);
   border: none;
@@ -52,36 +53,15 @@ body {
   font-size: 16px;
   color: var(--btn-text-color);
   font-weight: 600;
-  margin: 0 20px;
+  margin: 0 10px;
 }
 
-#quit-tictactoe {
-  width: 20%;
-  height: 40px;
-  background: var(--btn-color);
-  border: none;
-  outline: none;
-  border-radius: 40px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  cursor: pointer;
-  font-size: 16px;
-  color: var(--btn-text-color);
-  font-weight: 600;
-}
-
-#toggle-BGM{
-  width: 20%;
-  height: 40px;
-  background: var(--btn-color);
-  border: none;
-  outline: none;
-  border-radius: 40px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  cursor: pointer;
-  font-size: 16px;
-  color: var(--btn-text-color);
-  font-weight: 600;
-  margin: 0 20px;
+#game-mode-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
 }
 
 #game-board {
@@ -89,12 +69,6 @@ body {
   width: 600px;
   height: 600px;
   border-spacing: 0;
-  /* 中央寄せ用 */
-  position: absolute;
-  top: 40%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  /* 中央寄せ用 */
 }
 .inactive {
   display: none;
@@ -220,10 +194,6 @@ button {
 
   #modal-result {
     font-size: 1.5rem;
-  }
-
-  .end {
-    margin-top: -300px;
   }
 }
 
