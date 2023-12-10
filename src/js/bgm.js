@@ -19,6 +19,10 @@ export default class BGM {
     this.BGMElement.addEventListener('click', this.toggleBGM);
   }
 
+  bgmremove() {
+    this.BGMElement.removeEventListener('click', this.toggleBGM);
+  }
+
   playbgm() {
     if (this.BGMElement.innerText === '効果音OFF') {
       this.put.play();

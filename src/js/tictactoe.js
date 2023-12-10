@@ -7,6 +7,8 @@ import confetti from 'https://esm.run/canvas-confetti@1';
 export default class TicTacToe {
   constructor() {
     this.board = new Board(this);
+    this.modal = new Modal();
+    this.bgm = new BGM();
   }
 
   init() {
@@ -18,14 +20,11 @@ export default class TicTacToe {
     // 現在の手番を保持
     this.currentPlayer = this.players.x;
     this.board.init();
-    this.modal = new Modal();
-    this.bgm = new BGM();
   }
 
   start() {
     this.init();
     this.setCellClickListeners();
-    this.bgm.bgmregister();
   }
 
   reset() {
@@ -45,6 +44,7 @@ export default class TicTacToe {
 
   // セルをクリックした時のイベントリスナーの登録
   setCellClickListeners() {
+    this.bgm.bgmregister();
     for (let row = 0; row < 3; row++) {
       for (let col = 0; col < 3; col++) {
         const cell = this.board.boardState[row][col].uiElement;
@@ -59,6 +59,7 @@ export default class TicTacToe {
 
   // セルをクリックした時のイベントリスナーの削除
   clearCellClickListeners() {
+    this.bgm.bgmremove();
     for (let row = 0; row < 3; row++) {
       for (let col = 0; col < 3; col++) {
         const cell = this.board.boardState[row][col].uiElement;
@@ -117,7 +118,7 @@ export default class TicTacToe {
       scores.draw++;
     }
     localStorage.setItem('scores', JSON.stringify(scores));
-    this.bgm.playbgm()
+    this.bgm.playbgm();
   }
 
   getScores() {
