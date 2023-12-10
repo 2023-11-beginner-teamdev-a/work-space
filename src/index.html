@@ -33,30 +33,32 @@
         <li><button id="darkModeDropdown" class="btn">DarkMode</button></li>
       </div>
     </header>
-    <table id="game-board" class="inactive fadeIn">
-      <tr>
-        <td id="cell-0-0" class="fadeIn symbol"></td>
-        <td id="cell-0-1" class="fadeIn symbol"></td>
-        <td id="cell-0-2" class="fadeIn symbol"></td>
-      </tr>
-      <tr>
-        <td id="cell-1-0" class="fadeIn symbol"></td>
-        <td id="cell-1-1" class="fadeIn symbol"></td>
-        <td id="cell-1-2" class="fadeIn symbol"></td>
-      </tr>
-      <tr>
-        <td id="cell-2-0" class="fadeIn symbol"></td>
-        <td id="cell-2-1" class="fadeIn symbol"></td>
-        <td id="cell-2-2" class="fadeIn symbol"></td>
-      </tr>
-    </table>
-    <div class="btn">
-      <button id="start-tictactoe">Start</button>
-    </div>
-    <div class="end">
-      <button id="reset-tictactoe" class="inactive">Reset</button>
-      <button id="quit-tictactoe" class="inactive">Quit</button>
-      <button id="toggle-BGM" class="inactive" type="button">効果音ON</button>
+    <div id="game-mode-container">
+      <table id="game-board" class="inactive fadeIn">
+        <tr>
+          <td id="cell-0-0" class="fadeIn symbol"></td>
+          <td id="cell-0-1" class="fadeIn symbol"></td>
+          <td id="cell-0-2" class="fadeIn symbol"></td>
+        </tr>
+        <tr>
+          <td id="cell-1-0" class="fadeIn symbol"></td>
+          <td id="cell-1-1" class="fadeIn symbol"></td>
+          <td id="cell-1-2" class="fadeIn symbol"></td>
+        </tr>
+        <tr>
+          <td id="cell-2-0" class="fadeIn symbol"></td>
+          <td id="cell-2-1" class="fadeIn symbol"></td>
+          <td id="cell-2-2" class="fadeIn symbol"></td>
+        </tr>
+      </table>
+      <div class="start-button">
+        <button id="start-tictactoe">Start</button>
+      </div>
+      <div class="control-buttons">
+        <button id="reset-tictactoe" class="inactive control-button">Reset</button>
+        <button id="quit-tictactoe" class="inactive control-button">Quit</button>
+        <button id="toggle-BGM" class="inactive control-button" type="button">効果音ON</button>
+      </div>
     </div>
     <div id="modal" class="modal">
       <div class="modal-content aniamtion slidein">
